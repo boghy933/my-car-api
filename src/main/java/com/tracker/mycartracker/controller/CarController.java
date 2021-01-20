@@ -3,7 +3,9 @@ package com.tracker.mycartracker.controller;
 import com.tracker.mycartracker.model.Car;
 import com.tracker.mycartracker.service.CarService;
 import com.tracker.mycartracker.model.Location;
+import com.tracker.mycartracker.model.User;
 
+import com.tracker.mycartracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +15,18 @@ import java.util.List;
 @RestController
 public class CarController {
     private final CarService carService;
+    private final UserService userService;
 
     @Autowired
-    public CarController(CarService carService) {
+    public CarController(CarService carService, UserService userService) {
         this.carService = carService;
+        this.userService = userService;
     }
 
-    @PostMapping
-    public int insertStatistics(@RequestBody Location location) {
-        return carService.insertStatistics(location);
+    @PostMapping("add")
+    public Car insertStatistics(@RequestBody Location location) {
+        User user = userService.getUserByToken("demo-token");
+        return carService.insertStatistics(location, user);
     }
 
     @GetMapping

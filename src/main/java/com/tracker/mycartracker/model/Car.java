@@ -11,11 +11,13 @@ public class Car {
     private final UUID id;
     private final Timestamp timestamp;
     private final Location location;
+    private final UUID userId;
 
-    public Car(@JsonSetter("id") UUID id, Location location) {
+    public Car(@JsonSetter("id") UUID id, Location location, UUID userId) {
         this.id = id;
         this.location = location;
         this.timestamp = new Timestamp(System.currentTimeMillis());
+        this.userId = userId;
     }
 
     @JsonGetter("timestamp")
@@ -32,4 +34,10 @@ public class Car {
     public UUID getId() {
         return id;
     }
+
+    @JsonGetter("userId")
+    public UUID getUserId() {
+        return userId;
+    }
+
 }
