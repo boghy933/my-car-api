@@ -35,9 +35,10 @@ public class ArrayUserDataAccessService implements UserDao{
     public User insertUser(String username) {
         String token = UUID.randomUUID().toString();
         token = "demo-token";
+        String password = "qwerty";
 
         UUID id = UUID.randomUUID();
-        User user = new User(id, token, username);
+        User user = new User(id, token, username, password);
         DB.add(user);
         return user;
     }
