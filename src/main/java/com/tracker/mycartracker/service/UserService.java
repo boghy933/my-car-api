@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class UserService {
 
@@ -16,11 +18,14 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public User insertUser(String username) {
-        return userDao.insertUser(username);
+    public User insertUser(String username, String password, String email, String phone) {
+        return userDao.insertUser(username, password, email, phone);
     }
 
     public User getUserByToken(String token) {
         return userDao.getUserByToken(token);
+    }
+    public User getUserById(UUID id) {
+        return userDao.getUserById(id);
     }
 }

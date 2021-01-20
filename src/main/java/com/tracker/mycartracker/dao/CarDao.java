@@ -16,5 +16,5 @@ public interface CarDao {
         return insertStatistics(id, location, userId);
     }
 
-    List<Car> getAllStatistics();
+    List<Car> getAllStatistics(User user);
 }

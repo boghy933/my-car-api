@@ -23,7 +23,7 @@ public class CarService {
         return carDao.insertStatistics(location, user);
     }
 
-    public List<Car> getAllStatistics() {
-        return carDao.getAllStatistics();
+    public List<Car> getAllStatistics(User user) {
+        return carDao.getAllStatistics(user);
     }
 }

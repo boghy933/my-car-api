@@ -2,6 +2,7 @@ package com.tracker.mycartracker.dao;
 
 import com.tracker.mycartracker.model.Car;
 import com.tracker.mycartracker.model.Location;
+import com.tracker.mycartracker.model.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -20,7 +21,13 @@ public class ArrayCarDataAccessService implements CarDao {
     }
 
     @Override
-    public List<Car> getAllStatistics() {
-        return DB;
+    public List<Car> getAllStatistics(User user) {
+        List<Car> userDB = new ArrayList<>();
+        for (Car car: DB) {
+            if(car.getUserId() == user.getId()) {
+                userDB.add(car);
+            }
+        }
+        return userDB;
     }
 }

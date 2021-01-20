@@ -7,6 +7,7 @@ import com.tracker.mycartracker.model.User;
 
 import com.tracker.mycartracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,13 +25,14 @@ public class CarController {
     }
 
     @PostMapping("add")
-    public Car insertStatistics(@RequestBody Location location) {
-        User user = userService.getUserByToken("demo-token");
+    public Car insertStatistics(@RequestBody Location location, Authentication auth) {
+        User user = (User) auth.getPrincipal();
         return carService.insertStatistics(location, user);
     }
 
     @GetMapping
-    public List<Car> getAllStatistics() {
-        return carService.getAllStatistics();
+    public List<Car> getAllStatistics(Authentication auth) {
+        User user = (User) auth.getPrincipal();
+        return carService.getAllStatistics(user);
     }
 }

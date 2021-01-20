@@ -32,13 +32,10 @@ public class ArrayUserDataAccessService implements UserDao{
     }
 
     @Override
-    public User insertUser(String username) {
+    public User insertUser(String username, String password, String email, String phone) {
         String token = UUID.randomUUID().toString();
-        token = "demo-token";
-        String password = "qwerty";
-
         UUID id = UUID.randomUUID();
-        User user = new User(id, token, username, password);
+        User user = new User(id, token, username, password, email, phone);
         DB.add(user);
         return user;
     }
