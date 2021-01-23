@@ -12,7 +12,7 @@ public class Car {
     private final UUID userId;
     private final String plate;
 
-    public Car(@JsonSetter("id") UUID id, UUID userId, String plate) {
+    public Car(UUID id, UUID userId, @JsonSetter("plate") String plate) {
         this.id = id;
         this.userId = userId;
         this.plate = plate;
@@ -26,5 +26,10 @@ public class Car {
     @JsonGetter("userId")
     public UUID getUserId() {
         return userId;
+    }
+
+    @JsonGetter("plate")
+    public String getPlate() {
+        return plate;
     }
 }

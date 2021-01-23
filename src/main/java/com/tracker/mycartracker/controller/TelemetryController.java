@@ -4,10 +4,7 @@ import com.tracker.mycartracker.model.Telemetry;
 import com.tracker.mycartracker.service.TelemetryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,7 +19,7 @@ public class TelemetryController {
     }
 
     @PostMapping
-    public Telemetry insertTelemetry(Telemetry telemetry, Authentication auth) {
+    public Telemetry insertTelemetry(@RequestBody Telemetry telemetry, Authentication auth) {
         return telemetryService.insertTelemetry(telemetry);
     }
 

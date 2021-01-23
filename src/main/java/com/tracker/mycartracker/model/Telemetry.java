@@ -2,20 +2,25 @@ package com.tracker.mycartracker.model;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.NotNull;
 
 import java.sql.Timestamp;
+import java.util.UUID;
 
 public class Telemetry {
     private final String latitude;
     private final String longitude;
     private final int batteryLevel;
     private final Timestamp timestamp;
+    @NotNull
+    private final UUID carId;
 
-    public Telemetry(@JsonProperty("latitude") String latitude, @JsonProperty("longitude") String longitude, @JsonProperty("batteryLevel") int batteryLevel) {
+    public Telemetry(@JsonProperty("latitude") String latitude, @JsonProperty("longitude") String longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.batteryLevel = batteryLevel;
         this.timestamp = new Timestamp(System.currentTimeMillis());
+        this.carId = carId;
     }
 
     @JsonGetter("latitude")
@@ -36,5 +41,10 @@ public class Telemetry {
     @JsonGetter("batteryLevel")
     public int getBatteryLevel() {
         return batteryLevel;
+    }
+
+    @JsonGetter("carId")
+    public UUID getCarId() {
+        return carId;
     }
 }
