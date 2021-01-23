@@ -6,6 +6,8 @@ import org.apache.camel.util.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RequestMapping("api/v1/user")
 @RestController
 public class UserController {
@@ -29,5 +31,11 @@ public class UserController {
     @PostMapping("resetPassword")
     public void resetUserPassword(@RequestBody JsonObject userJson) {
         // TODO
+    }
+
+    @GetMapping(path = "{id}")
+    public User getUserById(@PathVariable("id") UUID id) {
+        // TODO
+        return null;
     }
 }

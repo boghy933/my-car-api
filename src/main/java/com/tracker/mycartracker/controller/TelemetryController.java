@@ -1,5 +1,6 @@
 package com.tracker.mycartracker.controller;
 
+import com.sun.istack.NotNull;
 import com.tracker.mycartracker.model.Telemetry;
 import com.tracker.mycartracker.service.TelemetryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class TelemetryController {
     }
 
     @PostMapping
-    public Telemetry insertTelemetry(@RequestBody Telemetry telemetry, Authentication auth) {
+    public Telemetry insertTelemetry(@NotNull @RequestBody Telemetry telemetry, Authentication auth) {
         return telemetryService.insertTelemetry(telemetry);
     }
 
