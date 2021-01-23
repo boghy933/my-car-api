@@ -1,0 +1,5 @@
+CREATE TABLE car (
+    id UUID NOT NULL PRIMARY KEY,
+    userId UUID NOT NULL,
+    plate VARCHAR(30) NOT NULL,
+);

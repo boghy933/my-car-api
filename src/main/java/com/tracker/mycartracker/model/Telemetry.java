@@ -9,14 +9,14 @@ import java.util.UUID;
 
 public class Telemetry {
     private final UUID id;
-    private final String latitude;
-    private final String longitude;
+    private final float latitude;
+    private final float longitude;
     private final int batteryLevel;
     private final Timestamp timestamp;
     @NotNull
     private final UUID carId;
 
-    public Telemetry(UUID id, @JsonProperty("latitude") String latitude, @JsonProperty("longitude") String longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
+    public Telemetry(UUID id, @JsonProperty("latitude") float latitude, @JsonProperty("longitude") float longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -26,12 +26,12 @@ public class Telemetry {
     }
 
     @JsonGetter("latitude")
-    public String getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
     @JsonGetter("longitude")
-    public String getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 
 public interface TelemetryDao {
 
-    Telemetry insertTelemetry(UUID id, String latitude, String longitude, int batteryLevel, UUID carId);
+    Telemetry insertTelemetry(UUID id, float latitude, float longitude, int batteryLevel, UUID carId);
     default Telemetry insertTelemetry(Telemetry telemetry) {
         return insertTelemetry(UUID.randomUUID(), telemetry.getLatitude(), telemetry.getLongitude(), telemetry.getBatteryLevel(), telemetry.getCarId());
     }

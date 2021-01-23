@@ -1,0 +1,6 @@
+app:
+  datasource:
+    jdbc-url: ${DATABASE_URL}
+    username: ${USERNAME}
+    password: ${PASSWORD}
+    pool-size: 30

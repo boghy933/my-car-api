@@ -13,7 +13,7 @@ public class ArrayTelemetryDataAccessService implements TelemetryDao {
     private static List<Telemetry> DB = new ArrayList<>();
 
     @Override
-    public Telemetry insertTelemetry(UUID id, String latitude, String longitude, int batteryLevel, UUID carId) {
+    public Telemetry insertTelemetry(UUID id, float latitude, float longitude, int batteryLevel, UUID carId) {
         Telemetry telemetry = new Telemetry(id, latitude, longitude, batteryLevel, carId);
         DB.add(telemetry);
         return telemetry;
