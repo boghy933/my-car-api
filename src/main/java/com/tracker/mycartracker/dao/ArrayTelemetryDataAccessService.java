@@ -6,13 +6,15 @@ import org.springframework.stereotype.Repository;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Repository("arrayTelemetryDao")
 public class ArrayTelemetryDataAccessService implements TelemetryDao {
     private static List<Telemetry> DB = new ArrayList<>();
 
     @Override
-    public Telemetry insertTelemetry(Telemetry telemetry) {
+    public Telemetry insertTelemetry(UUID id, String latitude, String longitude, int batteryLevel, UUID carId) {
+        Telemetry telemetry = new Telemetry(id, latitude, longitude, batteryLevel, carId);
         DB.add(telemetry);
         return telemetry;
     }

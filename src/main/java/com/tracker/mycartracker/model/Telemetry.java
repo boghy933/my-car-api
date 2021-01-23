@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 public class Telemetry {
+    private final UUID id;
     private final String latitude;
     private final String longitude;
     private final int batteryLevel;
@@ -15,7 +16,8 @@ public class Telemetry {
     @NotNull
     private final UUID carId;
 
-    public Telemetry(@JsonProperty("latitude") String latitude, @JsonProperty("longitude") String longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
+    public Telemetry(UUID id, @JsonProperty("latitude") String latitude, @JsonProperty("longitude") String longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
+        this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.batteryLevel = batteryLevel;
