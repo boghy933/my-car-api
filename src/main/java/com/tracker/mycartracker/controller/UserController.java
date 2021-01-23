@@ -16,8 +16,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping
+    @PostMapping("signUp")
     public User insertUser(@RequestBody JsonObject userJson) {
         return userService.insertUser(userJson.get("username").toString(), userJson.get("password").toString(), userJson.get("email").toString(), userJson.get("phone").toString());
+    }
+
+    @PostMapping("signIn")
+    public void loginUser(@RequestBody JsonObject loginJson) {
+        // TODO
+    }
+
+    @PostMapping("resetPassword")
+    public void resetUserPassword(@RequestBody JsonObject userJson) {
+        // TODO
     }
 }

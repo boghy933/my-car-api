@@ -9,25 +9,13 @@ import java.util.UUID;
 
 public class Car {
     private final UUID id;
-    private final Timestamp timestamp;
-    private final Location location;
     private final UUID userId;
+    private final String plate;
 
-    public Car(@JsonSetter("id") UUID id, Location location, UUID userId) {
+    public Car(@JsonSetter("id") UUID id, UUID userId, String plate) {
         this.id = id;
-        this.location = location;
-        this.timestamp = new Timestamp(System.currentTimeMillis());
         this.userId = userId;
-    }
-
-    @JsonGetter("timestamp")
-    public Timestamp getTimestamp() {
-        return timestamp;
-    }
-
-    @JsonGetter
-    public Location getLocation() {
-        return location;
+        this.plate = plate;
     }
 
     @JsonGetter("id")
@@ -39,5 +27,4 @@ public class Car {
     public UUID getUserId() {
         return userId;
     }
-
 }

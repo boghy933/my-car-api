@@ -26,7 +26,7 @@ public class MyCarTrackerApplication {
 			http.csrf().disable()
 					.addFilterAfter(new TokenAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
-					.antMatchers(HttpMethod.POST, "/api/v1/user").permitAll()
+					.antMatchers(HttpMethod.POST, "/api/v1/user/signUp").permitAll()
 					.anyRequest().authenticated();
 		}
 	}

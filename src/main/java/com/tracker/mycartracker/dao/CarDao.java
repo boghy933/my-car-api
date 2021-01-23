@@ -1,20 +1,19 @@
 package com.tracker.mycartracker.dao;
 
 import com.tracker.mycartracker.model.Car;
-import com.tracker.mycartracker.model.Location;
 import com.tracker.mycartracker.model.User;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface CarDao {
-    Car insertStatistics(UUID id, Location location, UUID userId);
+    Car insertCar(UUID id, UUID userId, String plate);
 
-    default Car insertStatistics(Location location, User user) {
+    default Car insertCar(User user, String plate) {
         UUID id =  UUID.randomUUID();
         UUID userId = user.getId();
-        return insertStatistics(id, location, userId);
+        return insertCar(id, userId, plate);
     }
 
-    List<Car> getAllStatistics(User user);
+    List<Car> getAllCars(User user);
 }
