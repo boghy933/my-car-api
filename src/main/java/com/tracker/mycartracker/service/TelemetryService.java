@@ -13,7 +13,7 @@ public class TelemetryService {
     private final TelemetryDao telemetryDao;
 
     @Autowired
-    public TelemetryService(@Qualifier("arrayTelemetryDao") TelemetryDao telemetryDao) {
+    public TelemetryService(@Qualifier("telemetryDB") TelemetryDao telemetryDao) {
         this.telemetryDao = telemetryDao;
     }
 

@@ -14,7 +14,7 @@ public class CarService {
     private final CarDao carDao;
 
     @Autowired
-    public CarService(@Qualifier("arrayCarDao") CarDao carDao) {
+    public CarService(@Qualifier("carDB") CarDao carDao) {
         this.carDao = carDao;
     }
 

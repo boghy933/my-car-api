@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("api/v1/car")
@@ -25,9 +26,10 @@ public class CarController {
     }
 
     @PostMapping
-    public Car insertCar(@RequestBody JsonObject carJson, Authentication auth) {
-        User user = (User) auth.getPrincipal();
-        return carService.insertCar(user, carJson.get("plate").toString());
+    public User insertCar(@RequestBody JsonObject carJson, Authentication auth) {
+        return (User) auth.getPrincipal();
+        //User user = (User) auth.getPrincipal();
+        //return carService.insertCar(user, carJson.get("plate").toString());
     }
 
     @GetMapping

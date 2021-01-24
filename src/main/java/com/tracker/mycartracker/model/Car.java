@@ -1,10 +1,8 @@
 package com.tracker.mycartracker.model;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
-import java.sql.Timestamp;
 import java.util.UUID;
 
 public class Car {

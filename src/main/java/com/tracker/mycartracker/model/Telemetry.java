@@ -16,12 +16,12 @@ public class Telemetry {
     @NotNull
     private final UUID carId;
 
-    public Telemetry(UUID id, @JsonProperty("latitude") float latitude, @JsonProperty("longitude") float longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId) {
+    public Telemetry(UUID id, @JsonProperty("latitude") float latitude, @JsonProperty("longitude") float longitude, @JsonProperty("batteryLevel") int batteryLevel, @JsonProperty("carId") UUID carId, Timestamp timestamp) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
         this.batteryLevel = batteryLevel;
-        this.timestamp = new Timestamp(System.currentTimeMillis());
+        this.timestamp = timestamp;
         this.carId = carId;
     }
 

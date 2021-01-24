@@ -2,9 +2,12 @@ package com.tracker.mycartracker.model;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -39,6 +42,11 @@ public class User {
 
     @JsonGetter("username")
     public String getUsername() {
+        return username;
+    }
+
+    @JsonIgnore
+    public String getPassword() {
         return username;
     }
 
