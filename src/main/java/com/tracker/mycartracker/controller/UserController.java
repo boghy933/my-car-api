@@ -4,6 +4,7 @@ import com.tracker.mycartracker.model.User;
 import com.tracker.mycartracker.service.UserService;
 import org.apache.camel.util.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -20,12 +21,19 @@ public class UserController {
 
     @PostMapping("signUp")
     public User insertUser(@RequestBody JsonObject userJson) {
-        return userService.insertUser(userJson.get("username").toString(), userJson.get("password").toString(), userJson.get("email").toString(), userJson.get("phone").toString());
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return userService.insertUser(
+                userJson.get("username").toString(),
+                passwordEncoder.encode(userJson.get("password").toString()),
+                userJson.get("email").toString(),
+                userJson.get("phone").toString()
+        );
     }
 
     @PostMapping("signIn")
-    public void loginUser(@RequestBody JsonObject loginJson) {
+    public String loginUser(@RequestBody JsonObject loginJson) {
         // TODO
+        return "TODO";
     }
 
     @PostMapping("resetPassword")
