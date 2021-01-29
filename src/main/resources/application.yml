@@ -1,6 +1,6 @@
 app:
   datasource:
-    jdbc-url: jdbc:postgresql://${HOST}:${PORT}/${DATABASE}?user=${USER}&password=${PASSWORD}
+    jdbc-url: ${DATABASE_URL}
     username: ${USER}
     password: ${PASSWORD}
     pool-size: 20
