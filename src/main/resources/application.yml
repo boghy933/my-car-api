@@ -1,6 +1,6 @@
 app:
   datasource:
-    jdbc-url: ${JDBC_URL}
+    jdbc-url: ${JDBC_DATABASE_URL}
     username: ${USER}
     password: ${PASSWORD}
     pool-size: 20
