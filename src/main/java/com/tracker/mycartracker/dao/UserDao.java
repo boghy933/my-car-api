@@ -14,5 +14,6 @@ public interface UserDao {
     User getUserByToken(String token);
     User getUserById(UUID id);
     User insertUser(String username, String password, String email, String phone);
+    User getUserByUsername(String username);
     List<User> getAllUsers();
 }

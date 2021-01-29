@@ -61,6 +61,21 @@ public class UserDataAccessService implements UserDao {
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        List<User> users = jdbcTemplate.query("SELECT * FROM users WHERE username = ?", ((resultSet, i) -> {
+            return new User(
+                    UUID.fromString(resultSet.getString("id")),
+                    resultSet.getString("token"),
+                    resultSet.getString("username"),
+                    resultSet.getString("password"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phone")
+            );
+        }), username);
+        return users.get(0);
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return null;
     }

@@ -41,6 +41,11 @@ public class ArrayUserDataAccessService implements UserDao{
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        return null;
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return DB;
     }

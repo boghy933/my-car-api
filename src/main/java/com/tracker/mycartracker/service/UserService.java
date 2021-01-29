@@ -23,6 +23,10 @@ public class UserService {
         return userDao.insertUser(username, password, email, phone);
     }
 
+    public User getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
+    }
+
     public User getUserByToken(String token) {
         return userDao.getUserByToken(token);
     }

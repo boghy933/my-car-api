@@ -26,15 +26,14 @@ public class CarController {
     }
 
     @PostMapping
-    public String insertCar(@RequestBody JsonObject carJson, Authentication auth) {
-        return "Hello World!";
-        //User user = (User) auth.getPrincipal();
-        //return carService.insertCar(user, carJson.get("plate").toString());
+    public Car insertCar(@RequestBody JsonObject carJson, Authentication auth) {
+        User user = userService.getUserByUsername(auth.getName());
+        return carService.insertCar(user, carJson.get("plate").toString());
     }
 
     @GetMapping
     public List<Car> getAllStatistics(Authentication auth) {
-        User user = (User) auth.getPrincipal();
+        User user = userService.getUserByUsername(auth.getName());
         return carService.getAllCars(user);
     }
 }
