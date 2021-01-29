@@ -1,10 +1,14 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE users (
-    id UUID NOT NULL PRIMARY KEY,
-    username VARCHAR(30) NOT NULL,
+    id UUID DEFAULT uuid_generate_v4 (),
+    username VARCHAR(50) NOT NULL,
     password VARCHAR(250) NOT NULL,
-    email VARCHAR(30) NOT NULL,
-    phone VARCHAR(30) NOT NULL,
-    token VARCHAR(120) NOT NULL
+    email VARCHAR(30),
+    phone VARCHAR(30),
+    token VARCHAR(120),
+    enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE cars (

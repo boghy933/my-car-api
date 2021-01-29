@@ -26,8 +26,8 @@ public class CarController {
     }
 
     @PostMapping
-    public User insertCar(@RequestBody JsonObject carJson, Authentication auth) {
-        return (User) auth.getPrincipal();
+    public String insertCar(@RequestBody JsonObject carJson, Authentication auth) {
+        return "Hello World!";
         //User user = (User) auth.getPrincipal();
         //return carService.insertCar(user, carJson.get("plate").toString());
     }
